@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hasvath | CSE Student Portfolio</title>
+<style>
+:root{
+--ivory:#F7F3EC;--cream:#FFFCF7;--espresso:#29241F;--brown:#514940;
+--gold:#B08D57;--gold-light:#D5BD91;--muted:#766F66;--border:#DED6C9;
+}
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+body{font-family:Georgia,"Times New Roman",serif;background:var(--ivory);color:var(--espresso);line-height:1.7}
+a{text-decoration:none;color:inherit}.container{width:90%;max-width:1150px;margin:auto}
+section{padding:100px 0}
+header{position:fixed;top:0;left:0;width:100%;z-index:1000;background:rgba(247,243,236,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+nav{height:76px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:27px;font-weight:bold;letter-spacing:1px}.logo span,.eyebrow,.section-heading .small-title,
+.section-heading h2 span,.skill-number,.project-label,.issuer,.education-year,.achievement-mark{color:var(--gold)}
+.nav-links{display:flex;list-style:none;gap:28px}.nav-links a{position:relative;color:var(--brown);font-family:Arial,sans-serif;font-size:14px;transition:.3s}
+.nav-links a:hover{color:var(--gold)}.menu-btn{display:none;font-size:26px;cursor:pointer}
+#home{min-height:100vh;display:flex;align-items:center;padding-top:120px;position:relative;overflow:hidden}
+#home:before,#home:after{content:"";position:absolute;border:1px solid var(--gold-light);border-radius:50%;opacity:.35}
+#home:before{width:500px;height:500px;right:-180px;top:100px}#home:after{width:350px;height:350px;right:-100px;top:175px}
+.hero{display:grid;grid-template-columns:1.4fr .8fr;gap:70px;align-items:center;position:relative;z-index:2}
+.eyebrow{text-transform:uppercase;letter-spacing:4px;font:12px Arial,sans-serif;margin-bottom:20px}
+.hero-text h1{font-size:clamp(55px,8vw,92px);line-height:1;font-weight:500;letter-spacing:-3px;margin-bottom:18px}
+.hero-text h2{font-size:25px;font-weight:normal;color:var(--brown);margin-bottom:25px}
+.hero-text p,.project-card p,.certificate-card p,.achievement-container p,.education-item p,.contact-text{font-family:Arial,sans-serif;color:var(--muted);font-size:14px}
+.hero-text p{max-width:650px;margin-bottom:15px}.buttons{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 25px;border:1px solid var(--gold);color:var(--espresso);font:13px Arial,sans-serif;letter-spacing:.5px;transition:.3s}
+.btn:hover{background:var(--gold);color:white;transform:translateY(-2px)}.btn-primary{background:var(--espresso);border-color:var(--espresso);color:var(--cream)}
+.profile-wrapper{display:flex;justify-content:center}.profile-frame{width:330px;height:390px;background:var(--espresso);position:relative;display:flex;align-items:center;justify-content:center;box-shadow:18px 18px 0 var(--gold-light)}
+.profile-frame:before{content:"";position:absolute;inset:15px;border:1px solid var(--gold)}
+.profile-content{text-align:center;position:relative}.profile-letter{font-size:125px;line-height:1;color:var(--gold)}.profile-content p{color:var(--cream);font:12px Arial,sans-serif;text-transform:uppercase;letter-spacing:3px}
+.section-heading{text-align:center;margin-bottom:60px}.section-heading .small-title{text-transform:uppercase;letter-spacing:4px;font:11px Arial,sans-serif;margin-bottom:10px}
+.section-heading h2{font-size:43px;font-weight:500}.section-line{width:50px;height:1px;background:var(--gold);margin:18px auto 0}
+#skills,#education{background:var(--ivory);color:var(--espresso)}#skills .section-heading h2,#education .section-heading h2{color:var(--espresso)}
+.skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.skill-card{padding:30px 20px;text-align:center;border:1px solid var(--border);background:var(--cream);transition:.4s}
+.skill-card:hover{border-color:var(--gold);transform:translateY(-7px);background:#fffaf0;box-shadow:0 12px 30px rgba(41,36,31,.08)}.skill-number{font:11px Arial,sans-serif;letter-spacing:2px;margin-bottom:15px}
+.skill-card h3{font-size:21px;font-weight:normal;margin-bottom:7px}.skill-card p{color:#A9A096;font:12px Arial,sans-serif}
+.project-card{max-width:900px;margin:auto;background:var(--cream);border:1px solid var(--border);padding:50px;transition:.4s}.project-card:hover{transform:translateY(-5px);box-shadow:0 20px 50px rgba(41,36,31,.08)}
+.project-label{text-transform:uppercase;font:11px Arial,sans-serif;letter-spacing:3px;margin-bottom:15px}.project-card h3{font-size:31px;font-weight:500;margin-bottom:20px}.tech-list{display:flex;flex-wrap:wrap;gap:9px;margin-top:25px}.tech{padding:7px 13px;border:1px solid var(--border);color:var(--brown);font:11px Arial,sans-serif;background:var(--ivory)}
+#certificates{background:#EEE8DE}.certificate-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.certificate-card{background:var(--cream);border:1px solid var(--border);padding:35px;min-height:230px;transition:.4s}.certificate-card:hover{transform:translateY(-7px);border-color:var(--gold);box-shadow:0 15px 35px rgba(41,36,31,.07)}
+.certificate-icon{width:42px;height:42px;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;color:var(--gold);margin-bottom:22px}
+.certificate-card h3{font-size:20px;font-weight:500;margin-bottom:12px}.issuer{margin-top:15px!important;font-weight:bold}
+.achievement-container{max-width:850px;margin:auto;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:45px 20px;text-align:center}
+.achievement-container h3{font-size:28px;font-weight:500;margin-bottom:15px}.achievement-mark{font-size:25px;margin-bottom:12px}
+.education-list{max-width:850px;margin:auto}.education-item{display:grid;grid-template-columns:120px 1fr;gap:35px;padding:30px 0;border-bottom:1px solid var(--border)}.education-item:first-child{border-top:1px solid var(--border)}
+.education-year{font:13px Arial,sans-serif;letter-spacing:1px}.education-item h3{font-size:22px;font-weight:normal;margin-bottom:5px}.education-item p{color:var(--muted);font-size:13px}
+#contact{text-align:center}.contact-title{font-size:45px;font-weight:500;margin-bottom:15px}.contact-title span{color:var(--gold)}.contact-text{margin-bottom:30px}
+.contact-links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}footer{background:var(--espresso);color:#A9A096;text-align:center;padding:28px;font:12px Arial,sans-serif;border-top:1px solid #514940}footer span{color:var(--gold)}
+.fade-in{opacity:0;transform:translateY(25px);transition:opacity .8s ease,transform .8s ease}.fade-in.show{opacity:1;transform:translateY(0)}
+@media(max-width:900px){.hero{grid-template-columns:1fr;text-align:center}.hero-text p{margin-left:auto;margin-right:auto}.buttons{justify-content:center}.profile-frame{width:280px;height:340px}.skills-grid{grid-template-columns:repeat(2,1fr)}.certificate-grid{grid-template-columns:1fr}}
+@media(max-width:650px){section{padding:75px 0}.nav-links{display:none;position:absolute;top:76px;left:0;width:100%;background:var(--ivory);flex-direction:column;gap:0;text-align:center;border-bottom:1px solid var(--border)}.nav-links.active{display:flex}.nav-links li{padding:14px}.menu-btn{display:block}.hero-text h1{font-size:58px}.section-heading h2{font-size:34px}.skills-grid{grid-template-columns:1fr}.project-card{padding:30px 22px}.project-card h3{font-size:25px}.education-item{grid-template-columns:1fr;gap:5px}.contact-title{font-size:35px}}
+
+/* ===== UPDATED TECH-LUXURY THEME ===== */
+:root{--ivory:#080b10;--cream:#0f141c;--espresso:#080b10;--brown:#c4c9d1;--gold:#d5a85a;--gold-light:#6e5734;--muted:#929aa6;--border:#252d39;--white:#fff}
+body{font-family:Inter,Arial,Helvetica,sans-serif;background:radial-gradient(circle at 85% 8%,rgba(213,168,90,.09),transparent 24%),radial-gradient(circle at 5% 75%,rgba(78,103,140,.08),transparent 25%),#080b10;color:#f3f1ec}
+body:after{content:"";position:fixed;inset:0;pointer-events:none;opacity:.035;background-image:linear-gradient(rgba(255,255,255,.5) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.5) 1px,transparent 1px);background-size:42px 42px;z-index:-1}
+header{background:rgba(8,11,16,.88);border-bottom:1px solid #202733}
+.logo{font-family:Arial,sans-serif;color:#f5f5f5}.logo span{color:var(--gold)}
+.nav-links a{color:#aeb5bf}.nav-links a:hover{color:var(--gold)}
+#home{background:transparent;min-height:calc(100vh - 76px)}
+#home:before,#home:after{border-color:#4c3d26;opacity:.35}
+.hero-text h1{font-family:Arial,sans-serif;font-weight:800;letter-spacing:-4px}.hero-text h1 span{color:var(--gold)}
+.hero-text h2{color:#d8dce2;font-family:Arial,sans-serif}.hero-text p{color:#929aa6}
+.eyebrow,.section-heading .small-title,.project-label,.skill-number,.education-year,.issuer{color:var(--gold)}
+.btn{border-color:#343d49;color:#e9e9e7;background:#0c1118}.btn:hover{border-color:var(--gold);background:#17130d;color:#fff}.btn-primary{background:var(--gold);border-color:var(--gold);color:#0b0b0b}.btn-primary:hover{background:#e0b96f;border-color:#e0b96f;color:#080b10}
+.profile-frame{background:#0e131b;border-color:#29313d;box-shadow:12px 12px 0 #332a1b}.profile-frame:before{border-color:var(--gold)}.profile-letter{color:var(--gold)}
+section{border-bottom:1px solid #202733}
+#skills,#education{background:rgba(7,10,15,.82)}
+#skills .section-heading h2,#education .section-heading h2{color:#f3f1ec}
+.section-heading h2{font-family:Arial,sans-serif;font-weight:750}.section-heading h2 span{color:var(--gold)}
+.skill-card,.certificate-card,.project-card,.achievement-container{background:linear-gradient(145deg,#101620,#0b1017);border-color:#27303d}
+.skill-card{border-radius:8px;padding:27px 20px;position:relative;overflow:hidden}.skill-card:after{content:"";position:absolute;left:0;bottom:0;width:28%;height:2px;background:var(--gold);transition:.3s}.skill-card:hover:after{width:100%}.skill-card:hover{background:#111822;border-color:#67522f}
+.skill-card h3{font-family:Arial,sans-serif;font-weight:650}.skill-card p{color:#858e9a}
+.project-card:hover,.certificate-card:hover{box-shadow:0 18px 55px rgba(0,0,0,.25);border-color:#67522f}.project-card h3,.certificate-card h3,.achievement-container h3{font-family:Arial,sans-serif}
+.tech{background:#13100b;border-color:#463821;color:#d4b875}
+#certificates{background:#0b0f15}.certificate-card{min-height:220px}
+#achievements{background:#080b10}.achievement-container{border-top-color:#29313d;border-bottom-color:#29313d}
+#contact{background:#080b10}.contact-title{font-family:Arial,sans-serif}.contact-title span{color:var(--gold)}
+footer{background:#06080c;border-top-color:#202733;color:#737b87}footer span{color:var(--gold)}
+@media(max-width:650px){.nav-links{background:#080b10;border-bottom-color:#252d39}.nav-links li{border-top-color:#202733}}
+
+
+/* ===== SKILL CARDS: VISUAL UPDATE ONLY ===== */
+.skills-grid{grid-template-columns:repeat(4,1fr);gap:14px;margin-top:8px}
+.skill-card{min-height:145px;padding:22px 22px 20px;text-align:left;border:1px solid #29323e;border-radius:10px;background:linear-gradient(145deg,#111821 0%,#0b1017 100%);display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;position:relative}
+.skill-card:before{content:"";position:absolute;top:0;right:0;width:42px;height:42px;border-left:1px solid #4b3d27;border-bottom:1px solid #4b3d27;transform:translate(1px,-1px);border-bottom-left-radius:10px}
+.skill-card .skill-number{font-size:10px;letter-spacing:2px;color:#68727e;margin:0}
+.skill-card h3{font-size:26px;line-height:1.1;letter-spacing:-.5px;margin:0;color:#f2f0eb}
+.skill-card .skill-type{font:10px Arial,sans-serif;letter-spacing:2px;color:#c49b57}
+.skill-card:after{height:2px;width:0;left:0;bottom:0;background:linear-gradient(90deg,#d5a85a,#7a5b2d);transition:.35s}
+.skill-card:hover{transform:translateY(-6px);border-color:#6b5533;box-shadow:0 14px 34px rgba(0,0,0,.28),0 0 22px rgba(213,168,90,.06)}
+.skill-card:hover:after{width:100%}
+@media(max-width:900px){.skills-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:650px){.skills-grid{grid-template-columns:1fr 1fr;gap:10px}.skill-card{min-height:125px;padding:17px}.skill-card h3{font-size:21px}}
+@media(max-width:430px){.skills-grid{grid-template-columns:1fr}.skill-card{min-height:120px}}
+</style>
+</head>
+<body>
+
+<header><div class="container"><nav>
+<div class="logo">Hasvath<span>.</span></div>
+<ul class="nav-links" id="navLinks">
+<li><a href="#home">Introduction</a></li><li><a href="#skills">Skills</a></li><li><a href="#projects">Projects</a></li>
+<li><a href="#certificates">Certificates</a></li><li><a href="#achievements">Achievements</a></li><li><a href="#education">Education</a></li>
+</ul>
+<div class="menu-btn" id="menuBtn">☰</div>
+</nav></div></header>
+
+<section id="home"><div class="container"><div class="hero">
+<div class="hero-text fade-in">
+<div class="eyebrow">Computer Science & Engineering</div>
+<h1>Hello,<br>I'm <span>Hasvath.</span></h1>
+<h2>B.Tech CSE Student & Technology Enthusiast</h2>
+<p>I am a first-year Computer Science and Engineering student at Lovely Professional University. I enjoy programming, problem solving and learning new technologies.</p>
+<p>With an analytical mindset and a willingness to learn, I am currently building my foundation in software development while exploring Artificial Intelligence and Machine Learning.</p>
+<div class="buttons"><a href="#projects" class="btn btn-primary">View My Project</a><a href="mailto:hasvathkv2007@gmail.com" class="btn">Get In Touch</a></div>
+</div>
+<div class="profile-wrapper fade-in"><div class="profile-frame"><div class="profile-content"><div class="profile-letter">H</div><p>CSE Student</p></div></div></div>
+</div></div></section>
+
+<section id="skills"><div class="container"><div class="section-heading"><div class="small-title">What I Work With</div><h2>My <span>Skills</span></h2><div class="section-line"></div></div>
+<div class="skills-grid">
+<div class="skill-card fade-in"><div class="skill-number">01</div><h3>C</h3><span class="skill-type">LANGUAGE</span></div>
+<div class="skill-card fade-in"><div class="skill-number">02</div><h3>C++</h3><span class="skill-type">LANGUAGE</span></div>
+<div class="skill-card fade-in"><div class="skill-number">03</div><h3>Python</h3><span class="skill-type">LANGUAGE</span></div>
+<div class="skill-card fade-in"><div class="skill-number">04</div><h3>HTML</h3><span class="skill-type">WEB</span></div>
+<div class="skill-card fade-in"><div class="skill-number">05</div><h3>CSS</h3><span class="skill-type">WEB</span></div>
+<div class="skill-card fade-in"><div class="skill-number">06</div><h3>JavaScript</h3><span class="skill-type">WEB</span></div>
+<div class="skill-card fade-in"><div class="skill-number">07</div><h3>SQL</h3><span class="skill-type">DATABASE</span></div>
+<div class="skill-card fade-in"><div class="skill-number">08</div><h3>Problem Solving</h3><span class="skill-type">CORE SKILL</span></div>
+</div></div></section>
+
+<section id="projects"><div class="container"><div class="section-heading"><div class="small-title">Selected Work</div><h2>My <span>Project</span></h2><div class="section-line"></div></div>
+<div class="project-card fade-in"><div class="project-label">Academic Project</div><h3>Arduino-Based Motion Tracking Radar System</h3>
+<p>Designed and implemented an Arduino-based motion tracking radar system capable of detecting objects and monitoring their distance and direction.</p>
+<p>The system uses an ultrasonic sensor mounted on a servo motor to scan its surroundings. Detection information can be presented through the connected output components. The project was also developed and tested using Proteus simulation.</p>
+<div class="tech-list"><span class="tech">Arduino UNO</span><span class="tech">HC-SR04</span><span class="tech">SG90 Servo</span><span class="tech">16×2 LCD</span><span class="tech">RGB LED</span><span class="tech">Active Buzzer</span><span class="tech">Proteus</span></div>
+</div></div></section>
+
+<section id="certificates"><div class="container"><div class="section-heading"><div class="small-title">Learning & Development</div><h2>My <span>Certificates</span></h2><div class="section-line"></div></div>
+<div class="certificate-grid">
+<div class="certificate-card fade-in"><div class="certificate-icon">✦</div><h3>Responsive Web Design Certification</h3><p>Foundation in responsive web design and modern web development concepts.</p><p class="issuer">freeCodeCamp</p></div>
+<div class="certificate-card fade-in"><div class="certificate-icon">✦</div><h3>AI Fundamentals</h3><p>Foundations of Artificial Intelligence, machine learning, neural networks, deep learning and AI ethics.</p><p class="issuer">IBM SkillsBuild</p></div>
+<div class="certificate-card fade-in"><div class="certificate-icon">✦</div><h3>Data Fundamentals</h3><p>Introduction to data analytics, data science, data cleaning and data visualization.</p><p class="issuer">IBM SkillsBuild</p></div>
+</div></div></section>
+
+<section id="achievements"><div class="container"><div class="section-heading"><div class="small-title">Growth</div><h2>My <span>Achievements</span></h2><div class="section-line"></div></div>
+<div class="achievement-container fade-in"><div class="achievement-mark">✦</div><h3>Continuous Learning</h3><p>Completed foundational certifications in Web Design, Artificial Intelligence and Data Fundamentals while continuing to strengthen my technical knowledge as a Computer Science student.</p></div>
+</div></section>
+
+<section id="education"><div class="container"><div class="section-heading"><div class="small-title">Academic Background</div><h2>My <span>Education</span></h2><div class="section-line"></div></div>
+<div class="education-list">
+<div class="education-item fade-in"><div class="education-year">PRESENT</div><div><h3>B.Tech – Computer Science & Engineering</h3><p>Lovely Professional University, Phagwara, Punjab</p><p>First Year</p></div></div>
+<div class="education-item fade-in"><div class="education-year">2025</div><div><h3>Class XII</h3><p>Sri Chaitanya</p><p>Percentage: 79.6%</p></div></div>
+<div class="education-item fade-in"><div class="education-year">2023</div><div><h3>Class X</h3><p>Nandha Central School</p><p>CBSE · Percentage: 89.6%</p></div></div>
+</div></div></section>
+
+<section id="contact"><div class="container"><div class="section-heading"><div class="small-title">Contact</div><h2 class="contact-title">Let's <span>Connect.</span></h2><div class="section-line"></div></div>
+<p class="contact-text">Interested in connecting? Feel free to reach out through email or my professional profiles.</p>
+<div class="contact-links">
+<a href="mailto:hasvathkv2007@gmail.com" class="btn btn-primary">Email Me</a>
+<a href="https://github.com/hasvath097" target="_blank" rel="noopener noreferrer" class="btn">GitHub</a>
+<a href="https://www.linkedin.com/in/hasvath-kv-003b0a381" target="_blank" rel="noopener noreferrer" class="btn">LinkedIn</a>
+</div></div></section>
+
+<footer><p>© 2026 <span>Hasvath</span> · B.Tech CSE Student</p><p>Lovely Professional University</p></footer>
+
+<script>
+const menuBtn=document.getElementById("menuBtn");
+const navLinks=document.getElementById("navLinks");
+menuBtn.addEventListener("click",()=>navLinks.classList.toggle("active"));
+document.querySelectorAll(".nav-links a").forEach(item=>item.addEventListener("click",()=>navLinks.classList.remove("active")));
+const animatedElements=document.querySelectorAll(".fade-in");
+function revealElements(){
+animatedElements.forEach(element=>{
+if(element.getBoundingClientRect().top<window.innerHeight-80) element.classList.add("show");
+});
+}
+window.addEventListener("scroll",revealElements);
+revealElements();
+</script>
+</body>
+</html>
